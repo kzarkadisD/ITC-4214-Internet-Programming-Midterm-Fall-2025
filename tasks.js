@@ -1,7 +1,7 @@
 /* ==================================================== */
 /* Orion Taskworks - tasks.js                           */
-/* Handles task creation, editing, deleting, completion, */
-/* filtering, sorting, and localStorage persistence.     */
+/* Handles task creation, editing (via modal), deleting, */
+/* completion, filtering, sorting, and persistence.      */
 /* ==================================================== */
 
 $(document).ready(function () {
@@ -10,59 +10,73 @@ $(document).ready(function () {
   // INITIALIZATION AND HELPERS
   // -------------------------------
   const today = new Date().toISOString().split('T')[0];
-      $('#taskCurrentDate').val(today);
+  $('#taskCurrentDate').val(today);
 
-  // Load saved tasks from localStorage or initialize empty array
+  // const time = new Date(task.created).toLocaleString();
+  // $('#taskDatetime').val(time);                                  add current time to table
+
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  // Function to save tasks to localStorage
+  // -------------------------------
+  // SAVE & LOAD FUNCTIONS
+  // -------------------------------
   function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
-  // Function to render all tasks into the table dynamically
   function renderTasks() {
-    $('#taskList').empty();
+    const tbody = $('#taskList');
+    tbody.empty();
 
-    // Retrieve selected filters and sorting preferences
     const filter = $('#filterStatus').val();
     const sort = $('#sortBy').val();
 
     let filteredTasks = [...tasks];
 
-    // Filter tasks by completion status
+    // Filter tasks
     if (filter === 'completed') filteredTasks = filteredTasks.filter(t => t.status === 'Completed');
     if (filter === 'pending') filteredTasks = filteredTasks.filter(t => t.status === 'Pending');
 
-    // Sort tasks alphabetically or by date
+    // Sort tasks
     if (sort === 'name') filteredTasks.sort((a, b) => a.name.localeCompare(b.name));
-    if (sort === 'date') filteredTasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+    if (sort === 'due') {
+      filteredTasks.sort((a, b) => {
+        const parse = d => Date.parse(d) || Infinity;
+        return parse(a.dueDate) - parse(b.dueDate);
+      });
+    }
 
-    // Loop through and append rows to the table
+    // Render each task row
     filteredTasks.forEach((task, index) => {
       const row = `
         <tr data-index="${index}" class="${task.status === 'Completed' ? 'table-success' : ''}">
           <td>${task.name}</td>
           <td>${task.description}</td>
           <td>${task.CurrentDate}</td>
-          <td>${task.date}</td>
-          <td><span class="badge bg-${
-            task.priority === 'High' ? 'danger' : task.priority === 'Medium' ? 'warning' : 'success'
-          }">${task.priority}</span></td>
+                       
+          <td>${task.dueDate || '-'}</td>
+          <td>
+            <span class="badge bg-${
+              task.priority === 'High'
+                ? 'danger'
+                : task.priority === 'Medium'
+                ? 'warning'
+                : 'success'
+            }">${task.priority}</span>
+          </td>
           <td>${task.status}</td>
           <td>
-            <button class="btn btn-sm btn-success completeBtn">✔</button>
+            <button class="btn btn-sm btn-success completeBtn" ${task.status === 'Completed' ? 'disabled' : ''}>✔</button>
             <button class="btn btn-sm btn-primary editBtn">✏</button>
             <button class="btn btn-sm btn-danger deleteBtn">🗑</button>
           </td>
         </tr>`;
-      $('#taskList').append(row);
+      tbody.append(row);
     });
 
     updateSummary();
   }
 
-  // Update dashboard counts
   function updateSummary() {
     const total = tasks.length;
     const completed = tasks.filter(t => t.status === 'Completed').length;
@@ -74,31 +88,37 @@ $(document).ready(function () {
   }
 
   // -------------------------------
-  // ADD NEW TASK
+  // ADD TASK
   // -------------------------------
   $('#taskForm').on('submit', function (e) {
     e.preventDefault();
 
-    // Collect form values
+    const name = $('#taskName').val().trim();
+    const desc = $('#taskDesc').val().trim();
+
+    if (!name || !desc) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
     const task = {
-      name: $('#taskName').val(),
-      description: $('#taskDesc').val(),
+      name,
+      description: desc,
       CurrentDate: $('#taskCurrentDate').val(),
-      date: $('#taskDate').val(),
+      Time: $('#taskDatetime').val(),
+      dueDate: $('#taskDue').val(), 
       priority: $('#taskPriority').val(),
       status: 'Pending'
     };
 
-    // Add to array and save
     tasks.push(task);
     saveTasks();
-
-    // Log activity for home page “Latest Activity”
     logActivity(`Added new task: ${task.name}`);
 
-    // Reset form and re-render
     this.reset();
-    $('#taskCurrentDate').val(today);
+    $('#taskate').val(today);
+    $('#taskPriority').val('Low');  // reset priority
+    $('#taskDue').val('');           // reset due date
     renderTasks();
   });
 
@@ -107,6 +127,7 @@ $(document).ready(function () {
   // -------------------------------
   $('#taskList').on('click', '.completeBtn', function () {
     const index = $(this).closest('tr').data('index');
+    if (!tasks[index]) return;
     tasks[index].status = 'Completed';
     saveTasks();
     logActivity(`Completed task: ${tasks[index].name}`);
@@ -118,45 +139,74 @@ $(document).ready(function () {
   // -------------------------------
   $('#taskList').on('click', '.deleteBtn', function () {
     const index = $(this).closest('tr').data('index');
-    logActivity(`Deleted task: ${tasks[index].name}`);
-    tasks.splice(index, 1);
-    saveTasks();
-    renderTasks();
+    if (!tasks[index]) return;
+    if (confirm(`Delete task "${tasks[index].name}"?`)) {
+      logActivity(`Deleted task: ${tasks[index].name}`);
+      tasks.splice(index, 1);
+      saveTasks();
+      renderTasks();
+    }
   });
 
   // -------------------------------
-  // EDIT TASK
+  // EDIT TASK (Modal Version)
   // -------------------------------
+  let editModalIndex = null;
+
   $('#taskList').on('click', '.editBtn', function () {
-    const index = $(this).closest('tr').data('index');
-    const task = tasks[index];
+    editModalIndex = $(this).closest('tr').data('index');
+    if (!tasks[editModalIndex]) return;
 
-    // Pre-fill form with task data
-    $('#taskName').val(task.name);
-    $('#taskDesc').val(task.description);
-  //  $('#taskCurrentDate').val(today);                                   comment
-    $('#taskDate').val(task.date);
-    $('#taskPriority').val(task.priority);
+    const task = tasks[editModalIndex];
 
-    // Remove old task and save updated later
-    tasks.splice(index, 1);
+    $('#editTaskName').val(task.name);
+    $('#editTaskDesc').val(task.description);
+    $('#editTaskDate').val(task.dueDate);
+    $('#editTaskPriority').val(task.priority);
+
+    const modal = new bootstrap.Modal(document.getElementById('editTaskModal'));
+    modal.show();
+  });
+
+  $('#saveEditBtn').on('click', function () {
+    if (editModalIndex == null || !tasks[editModalIndex]) return;
+
+    const name = $('#editTaskName').val().trim();
+    const desc = $('#editTaskDesc').val().trim();
+    if (!name || !desc) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    tasks[editModalIndex].name = name;
+    tasks[editModalIndex].description = desc;
+    tasks[editModalIndex].dueDate = $('#editTaskDate').val();
+    tasks[editModalIndex].priority = $('#editTaskPriority').val();
+
     saveTasks();
     renderTasks();
+    logActivity(`Edited task: ${tasks[editModalIndex].name}`);
+
+    const modalEl = document.getElementById('editTaskModal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+
+    editModalIndex = null;
   });
 
   // -------------------------------
   // FILTER & SORT LISTENERS
-  // ---------------  ----------------
+  // -------------------------------
   $('#filterStatus, #sortBy').on('change', renderTasks);
 
   // -------------------------------
-  // LOG ACTIVITY TO LOCALSTORAGE
-  // Used by index.html Latest Activity section
+  // ACTIVITY LOGGING
   // -------------------------------
   function logActivity(message) {
     const activities = JSON.parse(localStorage.getItem('activities')) || [];
     const timestamp = new Date().toLocaleString();
     activities.unshift(`${timestamp}: ${message}`);
+    if (activities.length > 100) activities.pop(); // keep log capped at 100
     localStorage.setItem('activities', JSON.stringify(activities));
   }
 

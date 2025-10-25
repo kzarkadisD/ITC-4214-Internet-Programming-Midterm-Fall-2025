@@ -1,269 +1,325 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tasks | Orion Taskworks</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks | Orion Taskworks</title>
 
-  <!-- Bootstrap CSS for layout -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
 
-  <!-- Custom CSS including dark mode -->
-  <link rel="stylesheet" href="css/styles.css">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- jQuery for DOM manipulation -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body { padding-bottom: 80px; } /* footer spacing */
+</style>
+</head>
+<body>
 
-  <style>
-      body {
-        padding-bottom: 80px; /* Keeps content visible above fixed footer */
-      }
-    </style>
-  </head>
-  <body>
+<!-- NAVBAR -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Orion Taskworks</a>
+    <img src="logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top me-2">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="tasks.html">Tasks</a></li>
+        <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
 
-  <!-- ============================== -->
-  <!-- NAVBAR -->
-  <!-- ============================== -->
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-      <img src="logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="d-inline-block align-text-top me-2">  
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="tasks.html">Tasks</a></li>
-          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="fake.html">fake</a></li>
-        </ul>
-
-        <!-- Dark Mode Toggle -->
-        <div class="form-check form-switch ms-3">
-          <input class="form-check-input" type="checkbox" id="darkModeToggle">
-          <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
-        </div>
+      <!-- Dark Mode Toggle -->
+      <div class="form-check form-switch ms-3">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+        <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
       </div>
     </div>
-  </nav>
-  </header>
+  </div>
+</nav>
+</header>
 
-  <main class="container mt-5 pt-3">
+<main class="container mt-5 pt-3">
+<h1 class="text-center mb-4">Task Management</h1>
 
-  <h1 class="text-center mb-4">Task Management</h1>
-
-  <!-- ============================== -->
-  <!-- ADD TASK FORM -->
-  <!-- ============================== -->
-  <form id="taskForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm mb-5">
-    <div class="mb-3">
-      <label for="taskName" class="form-label">Task Name</label>
-      <input type="text" id="taskName" class="form-control" required placeholder="Add Task Name">
-    </div>
-    <div class="mb-3">
-      <label for="taskDesc" class="form-label">Description</label>
-      <input type="hidden" id="taskCurrentDate">
-      <textarea id="taskDesc" class="form-control" rows="3" required placeholder="Add a Task Description"></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="taskDue" class="form-label">Due Date</label>
-      <input type="date" id="taskDue" class="form-control" >
-    </div>
-    <div class="mb-3">
-      <label for="taskPriority" class="form-label">Priority</label>
-      <select id="taskPriority" class="form-select" required>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Add Task To List</button>
-  </form>
-
-  <!-- ============================== -->
-  <!-- FILTER & SORT OPTIONS -->
-  <!-- ============================== -->
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-      <label for="statusFilter" class="form-label me-2">Filter by Status:</label>
-      <select id="statusFilter" class="form-select d-inline-block w-auto">
-        <option value="all">All</option>
-        <option value="pending">Pending</option>
-        <option value="completed">Completed</option>
-      </select>
-    </div>
-    <div>
-      <label for="sortTasks" class="form-label me-2">Sort by:</label>
-      <select id="sortTasks" class="form-select d-inline-block w-auto">
-        <option value="name">Task Name</option>
-        <option value="due">Due Date</option>
-      </select>
+<!-- EDIT TASK MODAL -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="editTaskModalLabel">Edit Task</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editTaskForm">
+          <div class="mb-3">
+            <label for="editTaskName" class="form-label">Task Name</label>
+            <input type="text" id="editTaskName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="editTaskDesc" class="form-label">Description</label>
+            <textarea id="editTaskDesc" class="form-control" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="editTaskDate" class="form-label">Due Date</label>
+            <input type="date" id="editTaskDate" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="editTaskPriority" class="form-label">Priority</label>
+            <select id="editTaskPriority" class="form-select">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- ============================== -->
-  <!-- TASKS TABLE -->
-  <!-- ============================== -->
-  <div class="table-responsive">
-    <table class="table table-striped table-hover" id="tasksTable">
-      <thead>
-        <tr>
-          <th>Task</th>
-          <th>Description</th>
-        <!-- <th>CurrentDate</th> -->     
-          <th>Due Date</th>
-          <th>Priority</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Dynamic tasks added via jQuery -->
-      </tbody>
-    </table>
+<!-- ADD TASK FORM -->
+<form id="taskForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm mb-5">
+  <div class="mb-3">
+    <label for="taskName" class="form-label">Task Name</label>
+    <input type="text" id="taskName" class="form-control" required placeholder="Add Task Name">
   </div>
+  <div class="mb-3">
+    <label for="taskDesc" class="form-label">Description</label>
+    <input type="hidden" id="taskCurrentDate">
+    <textarea id="taskDesc" class="form-control" rows="3" required placeholder="Add a Task Description"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="taskDue" class="form-label">Due Date</label>
+    <input type="date" id="taskDue" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="taskPriority" class="form-label">Priority</label>
+    <select id="taskPriority" class="form-select" required>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low" selected>Low</option>
+    </select>
+  </div>
+  <button type="submit" id="submitBtn" class="btn btn-primary w-100">Add Task</button>
+</form>
 
-  <!-- ============================== -->
-  <!-- TASK SUMMARY -->
-  <!-- ============================== -->
-  <section class="mt-5 text-center">
-    <h2>Task Summary</h2>
-    <p>Total Tasks: <span id="totalTasks">0</span> | 
-      Pending: <span id="pendingTasks">0</span> | 
-      Completed: <span id="completedTasks">0</span>
-    </p>
-  </section>
+<!-- FILTER & SORT -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <label for="filterStatus" class="form-label me-2">Filter by Status:</label>
+    <select id="filterStatus" class="form-select d-inline-block w-auto">
+      <option value="all">All</option>
+      <option value="pending">Pending</option>
+      <option value="completed">Completed</option>
+    </select>
+  </div>
+  <div>
+    <label for="sortBy" class="form-label me-2">Sort by:</label>
+    <select id="sortBy" class="form-select d-inline-block w-auto">
+      <option value="name">Task Name</option>
+      <option value="date">Due Date</option>
+    </select>
+  </div>
+</div>
 
+<!-- TASKS TABLE -->
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Created</th>
+        <!-- <th>Time</th>--> 
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="taskList">
+      <!-- Tasks injected by JS -->
+    </tbody>
+  </table>
+</div>
 
-  </main>
+<!-- TASK SUMMARY -->
+<section class="mt-5 text-center">
+  <h2>Task Summary</h2>
+  <p>Total Tasks: <span id="totalTasks">0</span> | 
+     Pending: <span id="pendingTasks">0</span> | 
+     Completed: <span id="completedTasks">0</span></p>
+</section>
 
-  <!-- ============================== -->
-  <!-- FOOTER -->
-  <!-- ============================== -->
-  <footer class="bg-dark text-white text-center py-3 fixed-bottom ">
-    <p>&copy; 2025 Orion Taskworks | Tasks Page</p>
-  </footer>
+</main>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3 fixed-bottom">
+  <p>&copy; 2025 Orion Taskworks | Tasks Page</p>
+</footer>
 
-  <!-- Dark mode JS -->
-  <script src="js/darkmode.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/darkmode.js"></script>
 
-  <!-- ============================== -->
-  <!-- TASK MANAGEMENT JS WITH LOCALSTORAGE -->
-  <!-- ============================== -->
-  <script>
-  $(document).ready(function() {
-    // Load tasks from localStorage or initialize empty array
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+<!-- TASK MANAGEMENT JS -->
+<script>
+$(document).ready(function() {
 
-    
+  const today = new Date().toISOString().split('T')[0];
+  $('#taskCurrentDate').val(today);
 
-    // Function to save tasks to localStorage
-    function saveTasks() {
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+//  const time = new Date(task.created).toLocaleString();
+//   $('#taskDatetime').val(time); 
 
-    // Function to render tasks in table
-    function renderTasks() {
-      const tbody = $('#tasksTable tbody');
-      tbody.empty();
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-      // Apply filtering by status
-      const filter = $('#statusFilter').val();
-      let filteredTasks = tasks;
-      if(filter !== 'all') {
-        filteredTasks = tasks.filter(t => t.status === filter);
-      }
+  function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
 
-      // Apply sorting
-      const sortBy = $('#sortTasks').val();
-      filteredTasks.sort((a,b) => {
-        if(sortBy === 'name') return a.name.localeCompare(b.name);
-        else return new Date(a.due) - new Date(b.due);
-      });
+  function renderTasks() {
+    const filter = $('#filterStatus').val();
+    const sort = $('#sortBy').val();
+    const tbody = $('#taskList');
+    tbody.empty();
 
-      // Populate table
-      filteredTasks.forEach((task, index) => {
-        const priorityColor = task.priority === 'High' ? 'text-danger' :
-                              task.priority === 'Medium' ? 'text-warning' : 'text-primary';
-        const statusBadge = task.status === 'completed' ? 'badge bg-success' : 'badge bg-warning text-dark';
+    let filtered = [...tasks];
 
-        const row = `<tr>
-          <td>${task.name}</td>
-          <td>${task.desc}</td>
-          <td>${task.due}</td>
-          <td class="${priorityColor}">${task.priority}</td>
-          <td><span class="${statusBadge}">${task.status}</span></td>
-          <td>
-            <button class="btn btn-success btn-sm mark-complete" data-index="${index}">Complete</button>
-            <button class="btn btn-danger btn-sm delete-task" data-index="${index}">Delete</button>
-          </td>
-        </tr>`;
-        tbody.append(row);
-      });
+    if(filter === 'pending') filtered = filtered.filter(t=>t.status==='Pending');
+    if(filter === 'completed') filtered = filtered.filter(t=>t.status==='Completed');
 
-      // Update summary
-      $('#totalTasks').text(tasks.length);
-      $('#completedTasks').text(tasks.filter(t=>t.status==='completed').length);
-      $('#pendingTasks').text(tasks.filter(t=>t.status==='pending').length);
-    }
-
-    // ==============================
-    // Add task
-    // ==============================
-    $('#taskForm').submit(function(e) {
-      e.preventDefault();
-      const newTask = {
-        name: $('#taskName').val(),
-        desc: $('#taskDesc').val(),
-        Current:$('#taskCurrent').val(),
-        due: $('#taskDue').val(),
-        priority: $('#taskPriority').val(),
-        status: 'pending'
-      };
-      tasks.push(newTask);
-      saveTasks();
-      renderTasks();
-      this.reset(); // Reset form fields
+    if(sort==='name') filtered.sort((a,b)=>a.name.localeCompare(b.name));
+    if(sort==='date') filtered.sort((a,b)=>{
+      const da = a.date ? new Date(a.date) : Infinity;
+      const db = b.date ? new Date(b.date) : Infinity;
+      return da-db;
     });
 
-    // ==============================
-    // Mark task complete
-    // ==============================
-    $(document).on('click', '.mark-complete', function() {
-      const index = $(this).data('index');
-      tasks[index].status = 'completed';
-      saveTasks();
-      renderTasks();
+    filtered.forEach((task, index)=>{
+      const row = `<tr data-id="${task.id}">
+        <td>${task.name}</td>
+        <td>${task.description}</td>
+        <td>${task.CurrentDate}</td>
+        <td>${task.date || '-'}</td>
+        <td><span class="badge bg-${task.priority==='High'?'danger':task.priority==='Medium'?'warning':'success'}">${task.priority}</span></td>
+        <td>${task.status}</td>
+        <td>
+          <button class="btn btn-success btn-sm completeBtn" ${task.status==='Completed'?'disabled':''}>✔</button>
+          <button class="btn btn-primary btn-sm editBtn">✏</button>
+          <button class="btn btn-danger btn-sm deleteBtn">🗑</button>
+        </td>
+      </tr>`;
+      tbody.append(row);
     });
 
-    // ==============================
-    // Delete task
-    // ==============================
-    $(document).on('click', '.delete-task', function() {
-      const index = $(this).data('index');
-      tasks.splice(index,1);
-      saveTasks();
-      renderTasks();
-    });
+    updateSummary();
+  }
 
-    // ==============================
-    // Filter or sort change
-    // ==============================
-    $('#statusFilter, #sortTasks').change(renderTasks);
+  function updateSummary() {
+    $('#totalTasks').text(tasks.length);
+    $('#completedTasks').text(tasks.filter(t=>t.status==='Completed').length);
+    $('#pendingTasks').text(tasks.filter(t=>t.status==='Pending').length);
+  }
 
-    // ==============================
-    // Initial render on page load
-    // ==============================
+  function logActivity(msg){
+    const acts = JSON.parse(localStorage.getItem('activities'))||[];
+    acts.unshift(`${new Date().toLocaleString()}: ${msg}`);
+    localStorage.setItem('activities', JSON.stringify(acts));
+  }
+
+  // Add task
+  $('#taskForm').submit(function(e){
+    e.preventDefault();
+    const name = $('#taskName').val().trim();
+    const desc = $('#taskDesc').val().trim();
+    if(!name || !desc) return alert('Fill all fields');
+    const task = {
+      id: Date.now(),
+      name,
+      description: desc,
+      CurrentDate: $('#taskCurrentDate').val(),
+      date: $('#taskDue').val(),
+      priority: $('#taskPriority').val(),
+      status: 'Pending'
+    };
+    tasks.push(task);
+    saveTasks();
+    logActivity(`Added task: ${name}`);
+    this.reset();
+    $('#taskCurrentDate').val(today);
     renderTasks();
   });
-  </script>
-  </body>
-  </html>
+
+  // Complete task
+  $('#taskList').on('click','.completeBtn',function(){
+    const id = $(this).closest('tr').data('id');
+    const task = tasks.find(t=>t.id===id);
+    task.status='Completed';
+    saveTasks();
+    logActivity(`Completed task: ${task.name}`);
+    renderTasks();
+  });
+
+  // Delete task
+  $('#taskList').on('click','.deleteBtn',function(){
+    const id = $(this).closest('tr').data('id');
+    const idx = tasks.findIndex(t=>t.id===id);
+    if(confirm(`Delete task "${tasks[idx].name}"?`)){
+      logActivity(`Deleted task: ${tasks[idx].name}`);
+      tasks.splice(idx,1);
+      saveTasks();
+      renderTasks();
+    }
+  });
+
+  // Edit task
+  let editId = null;
+  $('#taskList').on('click','.editBtn',function(){
+    editId = $(this).closest('tr').data('id');
+    const task = tasks.find(t=>t.id===editId);
+    $('#editTaskName').val(task.name);
+    $('#editTaskDesc').val(task.description);
+    $('#editTaskDate').val(task.date);
+    $('#editTaskPriority').val(task.priority);
+    new bootstrap.Modal(document.getElementById('editTaskModal')).show();
+  });
+
+  $('#saveEditBtn').click(function(){
+    if(editId===null) return;
+    const task = tasks.find(t=>t.id===editId);
+    const name = $('#editTaskName').val().trim();
+    const desc = $('#editTaskDesc').val().trim();
+    if(!name || !desc) return alert('Fill all fields');
+    task.name=name;
+    task.description=desc;
+    task.date=$('#editTaskDate').val();
+    task.priority=$('#editTaskPriority').val();
+    saveTasks();
+    renderTasks();
+    logActivity(`Edited task: ${task.name}`);
+    bootstrap.Modal.getInstance(document.getElementById('editTaskModal')).hide();
+    editId=null;
+  });
+
+  // Filters & sort
+  $('#filterStatus,#sortBy').change(renderTasks);
+
+  renderTasks();
+});
+</script>
+
+</body>
+</html>
