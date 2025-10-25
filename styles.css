@@ -5,14 +5,14 @@
 /* ---------- THEME VARIABLES ---------- */
 /* Define light theme colors using CSS variables */
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #be1515;
   --text-color: #212529;
   --primary-color: #0d6efd;
 }
 
 /* Dark mode overrides — toggled via [data-theme="dark"] on <html> */
 [data-theme='dark'] {
-  --bg-color: #b61e1e;
+  --bg-color: #f7f4f4;
   --text-color: #f1f1f1;
   --primary-color: #f0990d;
 }
@@ -59,6 +59,7 @@ main {
 /* ---------- FOOTER ---------- */
 footer {
   font-size: 0.9rem;
+  
 } 
 
 /* Ensures responsiveness across smaller devices */

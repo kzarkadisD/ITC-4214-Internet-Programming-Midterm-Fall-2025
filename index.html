@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 <!-- Custom CSS including dark mode -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="styles.css">
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -147,7 +147,7 @@ $(document).ready(function() {
     success: function(data) {
      // alert(data.content);
       $('#quoteBlock p').text(data.content);
-      $('#quoteAuthor').text(data.author);
+      
     },
     error: function() {
       $('#quoteBlock p').text('Stay motivated! Keep completing your tasks.');
