@@ -1,0 +1,269 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks | Orion Taskworks</title>
+
+  <!-- Bootstrap CSS for layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- Custom CSS including dark mode -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- jQuery for DOM manipulation -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+      body {
+        padding-bottom: 80px; /* Keeps content visible above fixed footer */
+      }
+    </style>
+  </head>
+  <body>
+
+  <!-- ============================== -->
+  <!-- NAVBAR -->
+  <!-- ============================== -->
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Orion Taskworks</a>
+      <img src="logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="d-inline-block align-text-top me-2">  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tasks.html">Tasks</a></li>
+          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="fake.html">fake</a></li>
+        </ul>
+
+        <!-- Dark Mode Toggle -->
+        <div class="form-check form-switch ms-3">
+          <input class="form-check-input" type="checkbox" id="darkModeToggle">
+          <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
+        </div>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+  <main class="container mt-5 pt-3">
+
+  <h1 class="text-center mb-4">Task Management</h1>
+
+  <!-- ============================== -->
+  <!-- ADD TASK FORM -->
+  <!-- ============================== -->
+  <form id="taskForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm mb-5">
+    <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input type="text" id="taskName" class="form-control" required placeholder="Add Task Name">
+    </div>
+    <div class="mb-3">
+      <label for="taskDesc" class="form-label">Description</label>
+      <input type="hidden" id="taskCurrentDate">
+      <textarea id="taskDesc" class="form-control" rows="3" required placeholder="Add a Task Description"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="taskDue" class="form-label">Due Date</label>
+      <input type="date" id="taskDue" class="form-control" >
+    </div>
+    <div class="mb-3">
+      <label for="taskPriority" class="form-label">Priority</label>
+      <select id="taskPriority" class="form-select" required>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Add Task To List</button>
+  </form>
+
+  <!-- ============================== -->
+  <!-- FILTER & SORT OPTIONS -->
+  <!-- ============================== -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <label for="statusFilter" class="form-label me-2">Filter by Status:</label>
+      <select id="statusFilter" class="form-select d-inline-block w-auto">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    <div>
+      <label for="sortTasks" class="form-label me-2">Sort by:</label>
+      <select id="sortTasks" class="form-select d-inline-block w-auto">
+        <option value="name">Task Name</option>
+        <option value="due">Due Date</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ============================== -->
+  <!-- TASKS TABLE -->
+  <!-- ============================== -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover" id="tasksTable">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Description</th>
+        <!-- <th>CurrentDate</th> -->     
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic tasks added via jQuery -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================== -->
+  <!-- TASK SUMMARY -->
+  <!-- ============================== -->
+  <section class="mt-5 text-center">
+    <h2>Task Summary</h2>
+    <p>Total Tasks: <span id="totalTasks">0</span> | 
+      Pending: <span id="pendingTasks">0</span> | 
+      Completed: <span id="completedTasks">0</span>
+    </p>
+  </section>
+
+
+  </main>
+
+  <!-- ============================== -->
+  <!-- FOOTER -->
+  <!-- ============================== -->
+  <footer class="bg-dark text-white text-center py-3 fixed-bottom ">
+    <p>&copy; 2025 Orion Taskworks | Tasks Page</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dark mode JS -->
+  <script src="js/darkmode.js"></script>
+
+  <!-- ============================== -->
+  <!-- TASK MANAGEMENT JS WITH LOCALSTORAGE -->
+  <!-- ============================== -->
+  <script>
+  $(document).ready(function() {
+    // Load tasks from localStorage or initialize empty array
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    
+
+    // Function to save tasks to localStorage
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Function to render tasks in table
+    function renderTasks() {
+      const tbody = $('#tasksTable tbody');
+      tbody.empty();
+
+      // Apply filtering by status
+      const filter = $('#statusFilter').val();
+      let filteredTasks = tasks;
+      if(filter !== 'all') {
+        filteredTasks = tasks.filter(t => t.status === filter);
+      }
+
+      // Apply sorting
+      const sortBy = $('#sortTasks').val();
+      filteredTasks.sort((a,b) => {
+        if(sortBy === 'name') return a.name.localeCompare(b.name);
+        else return new Date(a.due) - new Date(b.due);
+      });
+
+      // Populate table
+      filteredTasks.forEach((task, index) => {
+        const priorityColor = task.priority === 'High' ? 'text-danger' :
+                              task.priority === 'Medium' ? 'text-warning' : 'text-primary';
+        const statusBadge = task.status === 'completed' ? 'badge bg-success' : 'badge bg-warning text-dark';
+
+        const row = `<tr>
+          <td>${task.name}</td>
+          <td>${task.desc}</td>
+          <td>${task.due}</td>
+          <td class="${priorityColor}">${task.priority}</td>
+          <td><span class="${statusBadge}">${task.status}</span></td>
+          <td>
+            <button class="btn btn-success btn-sm mark-complete" data-index="${index}">Complete</button>
+            <button class="btn btn-danger btn-sm delete-task" data-index="${index}">Delete</button>
+          </td>
+        </tr>`;
+        tbody.append(row);
+      });
+
+      // Update summary
+      $('#totalTasks').text(tasks.length);
+      $('#completedTasks').text(tasks.filter(t=>t.status==='completed').length);
+      $('#pendingTasks').text(tasks.filter(t=>t.status==='pending').length);
+    }
+
+    // ==============================
+    // Add task
+    // ==============================
+    $('#taskForm').submit(function(e) {
+      e.preventDefault();
+      const newTask = {
+        name: $('#taskName').val(),
+        desc: $('#taskDesc').val(),
+        Current:$('#taskCurrent').val(),
+        due: $('#taskDue').val(),
+        priority: $('#taskPriority').val(),
+        status: 'pending'
+      };
+      tasks.push(newTask);
+      saveTasks();
+      renderTasks();
+      this.reset(); // Reset form fields
+    });
+
+    // ==============================
+    // Mark task complete
+    // ==============================
+    $(document).on('click', '.mark-complete', function() {
+      const index = $(this).data('index');
+      tasks[index].status = 'completed';
+      saveTasks();
+      renderTasks();
+    });
+
+    // ==============================
+    // Delete task
+    // ==============================
+    $(document).on('click', '.delete-task', function() {
+      const index = $(this).data('index');
+      tasks.splice(index,1);
+      saveTasks();
+      renderTasks();
+    });
+
+    // ==============================
+    // Filter or sort change
+    // ==============================
+    $('#statusFilter, #sortTasks').change(renderTasks);
+
+    // ==============================
+    // Initial render on page load
+    // ==============================
+    renderTasks();
+  });
+  </script>
+  </body>
+  </html>
