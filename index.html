@@ -14,32 +14,11 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- ============================
-     Sticky Footer Flexbox CSS
-============================ -->
 <style>
-  html, body {
-      height: 100%;               /* Full viewport height */
-      margin: 0;                  /* Remove default margin */
-      display: flex;
-      flex-direction: column;     /* Stack main and footer vertically */
-  }
-
-  main {
-      flex: 1;                    /* Fill space between header and footer */
-  }
-
-  footer {
-      background-color: #212529;  /* Dark background */
-      color: white;
-  }
-
-  /* Optional: Dark mode override */
-  body.dark-mode footer {
-      background-color: #1f1f1f;
-      color: #e0e0e0;
-  }
-</style>
+    body {
+      padding-bottom: 80px; /* Keeps content visible above fixed footer */
+    }
+  </style>
 </head>
 <body>
 
@@ -50,6 +29,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Orion Taskworks</a>
+    <img src="logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="d-inline-block align-text-top me-2">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -60,6 +40,7 @@
         <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="fake.html">fake</a></li>
       </ul>
       <!-- Dark Mode Toggle -->
       <div class="form-check form-switch ms-3">
@@ -81,18 +62,21 @@
     <p class="lead mt-3">
       Orion Taskworks is your all-in-one task management solution. Organize, track, and prioritize tasks easily.
     </p>
-    <a href="tasks.html" class="btn btn-primary btn-lg mt-3">Manage Your Tasks</a>
   </section>
-
+  
   <!-- ==============================
        LATEST ACTIVITY
   ============================== -->
   <section class="mb-5">
-    <h2 class="text-center mb-4">Latest Activity</h2>
+    <h2 class="text-center mb-4">Upcoming Deadlines </h2>
     <ul id="latestActivity" class="list-group col-md-8 mx-auto">
       <!-- Populated dynamically via jQuery -->
     </ul>
   </section>
+  <section class="text-center mb-5">
+          <a href="tasks.html" class=" btn btn-primary btn-lg mt-3">Manage Your Tasks</a>
+  </section> 
+  
 
   <!-- ==============================
        MOTIVATIONAL QUOTE
@@ -101,7 +85,7 @@
     <h2 class="mb-3">Motivational Quote</h2>
     <blockquote class="blockquote" id="quoteBlock">
       <p class="mb-0">Loading quote...</p>
-      <footer class="blockquote-footer" id="quoteAuthor"></footer>
+      
     </blockquote>
   </section>
 
@@ -110,7 +94,7 @@
 <!-- ==============================
      FOOTER
 ============================== -->
-<footer class="text-center py-3">
+<footer class="bg-dark text-white text-center py-3 fixed-bottom">
   <p>&copy; 2025 Orion Taskworks | Home Page</p>
 </footer>
 
@@ -120,3 +104,67 @@
 <!-- Dark mode JS -->
 <script src="js/darkmode.js"></script>
 
+<!-- ==============================
+     CUSTOM JS: LATEST ACTIVITY & QUOTE
+============================== -->
+<script>
+$(document).ready(function() {
+
+  // ------------------------------
+  // Function to render Latest Activity
+  // ------------------------------
+  function renderLatestActivity() {
+    const activityList = $('#latestActivity');
+    activityList.empty();
+
+    // Load tasks from localStorage
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Sort tasks by due date descending
+    const sortedTasks = tasks.slice().sort((a, b) => new Date(a.due) - new Date(b.due));
+
+    // Populate list items
+    sortedTasks.forEach(task => {
+      const statusText = task.status === 'completed' ? 'completed' : 'added';
+      const listItem = `<li class="list-group-item">
+        Task "<strong>${task.name}</strong>" ${statusText} (Priority: ${task.priority}, Due: ${task.due})
+      </li>`;
+      activityList.append(listItem);
+    });
+
+    // Show friendly message if no tasks
+    if(sortedTasks.length === 0){
+      activityList.append('<li class="list-group-item">No tasks yet. Add some from the Tasks page!</li>');
+    }
+  }
+
+  // ------------------------------
+  // Fetch motivational quote from API
+  // ------------------------------
+  $.ajax({
+    url: 'https://api.quotable.io/random',
+    method: 'GET',
+    success: function(data) {
+     // alert(data.content);
+      $('#quoteBlock p').text(data.content);
+      $('#quoteAuthor').text(data.author);
+    },
+    error: function() {
+      $('#quoteBlock p').text('Stay motivated! Keep completing your tasks.');
+      $('#quoteAuthor').text('Orion Taskworks');
+    }
+  });
+
+  // ------------------------------
+  // Initial render
+  // ------------------------------
+  renderLatestActivity();
+
+  // Optional: refresh latest activity every 5 seconds
+  setInterval(renderLatestActivity, 5000);
+
+});
+</script>
+
+</body>
+</html>
