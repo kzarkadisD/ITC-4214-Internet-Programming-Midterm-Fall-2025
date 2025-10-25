@@ -125,7 +125,7 @@ $(document).ready(function() {
 
     // Populate list items
     sortedTasks.forEach(task => {
-      const statusText = task.status === 'completed' ? 'completed' : 'added';
+      const statusText = task.status === 'Completed' ? 'Completed' : 'added';
       const listItem = `<li class="list-group-item">
         Task "<strong>${task.name}</strong>" ${statusText} (Priority: ${task.priority}, Due: ${task.due})
       </li>`;
@@ -160,7 +160,7 @@ $(document).ready(function() {
   // ------------------------------
   renderLatestActivity();
 
-  // Optional: refresh latest activity every 5 seconds
+  //  refresh latest activity every 5 seconds
   setInterval(renderLatestActivity, 5000);
 
 });
