@@ -1,11 +1,6 @@
 $(document).ready(function () {
 
-  const today = new Date().toISOString().split('T')[0];
-  //$('#taskCurrentDate').val(today);
-
-  //  const time = new Date(task.created).toLocaleString();
-  //   $('#taskDatetime').val(time); 
-
+  const today = new Date().toISOString().split('T')[0];6
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   function saveTasks() {
