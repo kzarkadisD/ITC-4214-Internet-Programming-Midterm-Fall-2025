@@ -41,8 +41,6 @@ body {
   /* Keeps navbar above other content */
 }
 
-
-
 /* ---------- ACTIVITY SECTION ---------- */
 #latestActivity li {
   background-color: #f8f9fa;
@@ -56,6 +54,7 @@ html, body {
   margin: 0;
   display: flex;
   flex-direction: column;
+
   /* Stack content vertically */
 }
 
