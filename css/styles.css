@@ -71,6 +71,52 @@ footer {
 
 }
 
+/* Style for icons */
+.fa-facebook {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.fa-instagram {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.fa-twitter {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.9;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: rgb(242, 240, 240);
+}
+/* Instagram */
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+/* Twitter */
+.fa-twitter {
+  background: #65b1eb;
+  color: white;
+}
 /* Ensures responsiveness across smaller devices */
 @media (max-width: 768px) {
   h1.display-4 {
