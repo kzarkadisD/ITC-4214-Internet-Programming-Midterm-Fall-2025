@@ -31,7 +31,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
           <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -123,18 +123,53 @@
         </div>
       </div>
     </div>
+    <!--  NewsLetter   -->
+    <div class="newsletter-box container mb-5">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p class="text-center">Stay updated with the latest news and updates from Orion Taskworks!</p>
 
+      <form id="newsletterForm">
+        <div class="mb-3">
+          <label for="userName" class="form-label">Full Name</label>
+          <input type="text" id="userName" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label for="userEmail" class="form-label">Email address</label>
+          <input type="email" id="userEmail" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <button type="submit" class="btn btn-warning w-100">Subscribe</button>
+      </form>
+    </div>
   </div>
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
-  <img src="images/logo.png" alt="Logo" width="40" height="40" class="me-2">
-  <p class="mb-0">&copy; 2025 Orion Taskworks | Suggestions Page</p>
+<footer
+  class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+  <a href="index.html">
+    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+    </a>
+  <p class="mb-0">&copy; 2025 Orion Taskworks | Suggestions Page | Email: orion.taskworks@gmail | Social Media Links:</p>
   <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
+  <div class=" social d-flex align-items-center gap-3">
+    <!-- Social Media Buttons -->
+    <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
+      <i class="bnt instagram"> instagram</i>
+    </a>
+    <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
+      <i class="bnt twitter">twitter</i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
+      <i class=" bnt facebook">facebook</i>
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
+      <i class="bnt linkedin">linkedin</i>
+    </a>
+  </div>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/darkmode.js"></script>
+<script src="js/letterbox.js"></script>
 <script>

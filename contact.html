@@ -117,14 +117,29 @@
     </section>
   </main>
 
-  <!-- ============================== -->
-  <!-- STICKY FOOTER -->
-  <!-- ============================== -->
+  <!-- FOOTER -->
   <footer
-    class="bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
-    <img src="images/logo.png" alt="Logo" width="40" height="40" class="me-2">
-    <p class="mb-0">&copy; 2025 Orion Taskworks | Contact Page</p>
+    class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+    <a href="index.html">
+    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+    </a>
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Contact Page | Email: orion.taskworks@gmail | Social Media Links:</p>
     <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
+    <div class=" social d-flex align-items-center gap-3">
+      <!-- Social Media Buttons -->
+      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
+        <i class="bnt instagram"> instagram</i>
+      </a>
+      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
+        <i class="bnt twitter">twitter</i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
+        <i class=" bnt facebook">facebook</i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
+        <i class="bnt linkedin">linkedin</i>
+      </a>
+    </div>
   </footer>
 
   <!-- Bootstrap JS bundle -->
@@ -133,34 +148,6 @@
 
   <!-- Dark mode script -->
   <script src="js/darkmode.js"></script>
-
-  <!-- jQuery form handling -->
-  <!-- <script>
-$(document).ready(function () {
-  $('#contactForm').on('submit', function (event) {
-    event.preventDefault(); // Prevent page reload
-
-    // Get values from the form
-    const name = $('#name').val();
-    const email = $('#email').val();
-    const subject = $('#subject').val();
-    const message = $('#message').val();
-
-    // Show user input in a popup
-    alert(
-      `✅ Your message has been captured!\n\n` +
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Subject: ${subject}\n` +
-      `Message: ${message}`
-    );
-
-    $(this).trigger('reset'); // Clear form fields
-  });
-}); -->
-  </script>
-
-
 </body>
 
 </html>

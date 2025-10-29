@@ -1,3 +1,0 @@
-added logo to footer
-Aria labels 
-background to home page (css)

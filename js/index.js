@@ -38,11 +38,19 @@ $(document).ready(function () {
     url: "https://api.kanye.rest/",
     method: "GET",
     success: function (data) {
-      $("#quoteBlock p").text(data.quote);
+      const quote = $("#quoteBlock p");
+
+      quote
+        .css({
+          fontStyle: "italic",
+          fontWeight: "bold",
+          color: "#000000ff",
+          fontSize: "1.2em",
+        })
+        .text(data.quote);
     },
     error: function () {
       $("#quoteBlock p").text("Stay motivated! Keep completing your tasks.");
-      $("#quoteAuthor").text("Orion Taskworks");
     },
   });
 

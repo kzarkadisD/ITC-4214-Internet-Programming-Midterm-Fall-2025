@@ -41,3 +41,21 @@
      margin-bottom: 40px;
      font-weight: 700;
  }
+
+ .newsletter-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      
+    }
+
+    .newsletter-box h2 {
+      margin-bottom: 25px;
+      text-align: center;
+      color: #ffd700;
+    }
+
+ 

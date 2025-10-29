@@ -38,7 +38,7 @@ body {
   position: sticky-top;
   top: 0;
   z-index: 1030;
-  /* Keeps navbar above other content */
+
 }
 
 /* ---------- ACTIVITY SECTION ---------- */
@@ -55,7 +55,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-
   /* Stack content vertically */
 }
 
@@ -63,12 +62,6 @@ main {
   padding-bottom: 80px;
   flex: 1;
   /* Fill available space between header and footer */
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  font-size: 0.9rem;
-  padding-bottom: 80px;
 }
 
 /* Style for icons */
