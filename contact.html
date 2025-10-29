@@ -15,12 +15,10 @@
 
     <!-- jQuery for DOM manipulation and form handling -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-    /* Prevent the fixed footer from covering content */
-    body {
-      padding-bottom: 80px;
-    }
+<!-- jQuery -->
+    <script src="js/popup.js"></script>
+ 
+  
   </style>
   </head>
   <body>
@@ -146,20 +144,37 @@
     <!-- Bootstrap JS bundle -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 
     <!-- Dark mode script -->
     <script src="js/darkmode.js"></script>
 
     <!-- jQuery form handling -->
-    <script>
-  $(document).ready(function () {
-    $('#contactForm').on('submit', function (event) {
-      event.preventDefault(); // Prevent page reload
-      alert('✅ Thank you for your message! We’ll get back to you soon.');
-      $(this).trigger('reset'); // Clear form fields
-    });
+   <!-- <script>
+$(document).ready(function () {
+  $('#contactForm').on('submit', function (event) {
+    event.preventDefault(); // Prevent page reload
+
+    // Get values from the form
+    const name = $('#name').val();
+    const email = $('#email').val();
+    const subject = $('#subject').val();
+    const message = $('#message').val();
+
+    // Show user input in a popup
+    alert(
+      `✅ Your message has been captured!\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Subject: ${subject}\n` +
+      `Message: ${message}`
+    );
+
+    $(this).trigger('reset'); // Clear form fields
   });
+}); -->
 </script>
+
 
   </body>
 </html>
