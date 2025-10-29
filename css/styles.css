@@ -59,6 +59,7 @@ html, body {
 }
 
 main {
+  padding-bottom: 80px;
   flex: 1;
   /* Fill available space between header and footer */
 }
@@ -92,6 +93,14 @@ footer {
   text-align: center;
   text-decoration: none;
 }
+.fa-linkedin {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
 
 /* Add a hover effect if you want */
 .fa:hover {
@@ -113,6 +122,11 @@ footer {
 /* Twitter */
 .fa-twitter {
   background: #65b1eb;
+  color: white;
+}
+/* LinkedIN */
+.fa-linkedin {
+  background: #007bb5;
   color: white;
 }
 /* Ensures responsiveness across smaller devices */
