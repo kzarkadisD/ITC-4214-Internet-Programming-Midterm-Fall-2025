@@ -1,186 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Orion Taskworks</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Orion Taskworks</title>
 
-    <!-- Custom CSS including dark mode -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-  </head>
-  <body>
+  <!-- Custom CSS including dark mode -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/home.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
 
-      <!-- ============================== -->
-      <!-- NAVBAR -->
-      <!-- ==============================   -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50"
-            height="50"
-            class="d-inline-block align-text-top me-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link active"
-                  href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="tasks.html">Tasks</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="analytics.html">Analytics</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="about.html">About</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="contact.html">Contact</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="suggestions.html">Suggestions</a></li>
-            </ul>
-            <!-- Dark Mode Toggle -->
-            <div class="form-check form-switch ms-3">
-              <input class="form-check-input" type="checkbox"
-                id="darkModeToggle">
-              <label class="form-check-label text-white"
-                for="darkModeToggle">Dark Mode</label>
-            </div>
+<body>
+
+  <!-- ============================== -->
+  <!-- NAVBAR -->
+  <!-- ==============================   -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Orion Taskworks</a>
+        <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50"
+          class="d-inline-block align-text-top me-2">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="suggestions.html">Suggestions</a></li>
+          </ul>
+          <!-- Dark Mode Toggle -->
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main class="container mt-5 pt-5">
-
-      <!-- ============================== -->
-      <!-- WELCOME / INTRO -->
-      <!-- ==============================  -->
-   <section class="container text-center mt-7">
-  <h1 class="text-center mb-4">Welcome to Orion Taskworks</h1>
-
-  <ul class="fs-3">
-       <li>
-        Orion Taskworks is your all-in-one task management solution. Organize,track, and prioritize tasks easily.
-      </li>
-      <li> 
-        Our team is made up of dedicated professionals with years of experience in software development and digital solutions.
-      </li>
-    <li>
-      At Orion Taskworks, we believe in creating tools that are not only powerful but also simple and intuitive to use. Our mission is to make productivity smarter, faster, and easier for everyone.
-    </li>
-    <li>
-      We are constantly exploring new technologies to improve our services and deliver innovative, user-focused solutions to our clients.
-    </li>
-    <li>
-      What drives us is our passion for innovation and our commitment to excellence. Our ultimate goal is continuous growth — and satisfied users who trust Orion Taskworks to organize their world.
-    </li>
-  </ul>
-
-  <div class="text-center mb-5">
-    <a href="contact.html" class="btn btn-primary btn-lg mt-3">Get In Touch</a>
-  </div>
-</section>
-
-
-      <!-- ============================== -->
-      <!-- LATEST ACTIVITY -->
-      <!-- ==============================  -->
-      <section class="mb-5">
-        <h2 class="text-center mb-4">Upcoming Deadlines </h2>
-        <ul id="latestActivity" class="list-group col-md-8 mx-auto">
-          <!-- Populated dynamically via jQuery -->
-        </ul>
-      </section>
-      <section class="text-center mb-5">
-        <a href="tasks.html" class=" btn btn-primary btn-lg mt-3">Manage Your
-          Tasks</a>
-      </section>
-
-       <!-- ============================== -->
-       <!-- MOTIVATIONAL QUOTE -->
-       <!-- ==============================  -->
-      <section class="text-center mb-5">
-        <h2 class="mb-3">Motivational Quote</h2>
-        <blockquote class="blockquote" id="quoteBlock">
-          <p class="mb-0">Loading quote...</p>
-
-        </blockquote>
-      </section>
-
-          <!-- ============================== -->
-      <!-- CAROUSEL SECTION               -->
-      <!-- ============================== -->
-      <section class="mb-5">
-        <h2 class="text-center mb-4">Our Journey</h2>
-        <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel"
-          data-bs-interval="3500">
-          <div class="carousel-inner rounded shadow">
-            <!-- Carousel item 1 -->
-            <div class="carousel-item active">
-              <img src="images/prototype.png" class="d-block mx-auto"
-                alt="Workspace 1">
-              <div
-                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                <h5>Our First Prototype out in 2025</h5>
-                <p>Humble start with great enthusiasm and the help of coffee.</p>
-              </div>
-            </div>
-            <!-- Carousel item 2 -->
-            <div class="carousel-item ">
-              <img src="images/collaboration.png" class="d-block mx-auto"
-                alt="Workspace 2">
-              <div
-                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                <h5>Team Collaboration</h5>
-                <p>We believe in open communication and interative design.</p>
-              </div>
-            </div>
-            <!-- Carousel item 3 -->
-            <div class="carousel-item ">
-              <img src="images/mobile.png" class="d-block mx-auto"
-                alt="Workspace 3">
-              <div
-                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                <h5>Ongoing Development</h5>
-                <p>We believe that these is always more things to improve</p>
-              </div>
-            </div>
-          </div>
-          <!-- Carousel navigation buttons -->
-          <button class="carousel-control-prev" type="button"
-            data-bs-target="#autoCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button"
-            data-bs-target="#autoCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </section>
-    </main>
+  <main class="container mt-5 pt-5">
 
     <!-- ============================== -->
-    <!-- STICKY FOOTER -->
+    <!-- WELCOME / INTRO -->
     <!-- ==============================  -->
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-      <p>&copy; 2025 Orion Taskworks | Home Page</p>
-    </footer>
+    <section class="about-section text-center d-flex flex-column justify-content-center align-items-center">
+      <h1>Welcome to Orion Taskworks</h1>
 
-    <!-- Bootstrap JS bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <ul class="fs-4">
+        <li>
+          Orion Taskworks is your all-in-one task management solution — helping you organize, track, and prioritize your
+          workflow effortlessly.
+        </li>
+        <li>
+          The platform offers powerful yet simple tools that make productivity smarter and easier for everyone.
+        </li>
+        <li>
+          With real-time analytics, customizable tasks, and cloud storage support, Orion Taskworks adapts to your
+          personal or professional needs.
+        </li>
+        <li>
+          Our mission is to simplify everyday task management through intuitive design and continuous innovation.
+        </li>
+        <li>
+          Join a growing community of users who rely on Orion Taskworks to bring order, focus, and efficiency to their
+          daily routine.
+        </li>
+      </ul>
 
-    <!-- Dark mode JS -->
-    <script src="js/darkmode.js"></script>
+      <div class="text-center mb-5">
+        <a href="contact.html" class="btn btn-primary btn-lg mt-4">Get In Touch</a>
+      </div>
+    </section>
 
-  </body>
+
+    <!-- ============================== -->
+    <!-- LATEST ACTIVITY -->
+    <!-- ==============================  -->
+    <section class="mb-5">
+      <h2 class="text-center mb-4">Upcoming Deadlines </h2>
+      <ul id="latestActivity" class="list-group col-md-8 mx-auto">
+        <!-- Populated dynamically via jQuery -->
+      </ul>
+    </section>
+    <section class="text-center mb-5">
+      <a href="tasks.html" class=" btn btn-primary btn-lg mt-3">Manage Your
+        Tasks</a>
+    </section>
+
+    <!-- ============================== -->
+    <!-- MOTIVATIONAL QUOTE -->
+    <!-- ==============================  -->
+    <section class=" quote-section text-center mb-5">
+      <h2 class="mb-3">Motivational Quote</h2>
+      <blockquote class="blockquote" id="quoteBlock">
+        <p class="mb-0">Loading quote...</p>
+      </blockquote>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CAROUSEL SECTION               -->
+    <!-- ============================== -->
+    <section class="mb-5">
+      <h2 class="text-center mb-4">Our Journey</h2>
+      <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-inner rounded shadow">
+          <!-- Carousel item 1 -->
+          <div class="carousel-item active">
+            <img src="images/prototype.png" alt="Image 1 for Carousel on About Page" class="d-block mx-auto"
+              alt="Workspace 1">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+              <h5>Our First Prototype out in 2025</h5>
+              <p>Humble start with great enthusiasm and the help of coffee.</p>
+            </div>
+          </div>
+          <!-- Carousel item 2 -->
+          <div class="carousel-item ">
+            <img src="images/collaboration.png" alt="Image 2 for Carousel on About Page" class="d-block mx-auto"
+              alt="Workspace 2">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+              <h5>Team Collaboration</h5>
+              <p>We believe in open communication and interative design.</p>
+            </div>
+          </div>
+          <!-- Carousel item 3 -->
+          <div class="carousel-item ">
+            <img src="images/mobile.png" alt="Image 3 for Carousel on About Page" class="d-block mx-auto"
+              alt="Workspace 3">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+              <h5>Ongoing Development</h5>
+              <p>We believe that these is always more things to improve</p>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel navigation buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#autoCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#autoCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== -->
+  <!-- STICKY FOOTER -->
+  <!-- ==============================  -->
+  <footer
+    class="bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+    <img src="images/logo.png" alt="Logo" width="40" height="40" class="me-2">
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Home Page</p>
+    <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
+  </footer>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dark mode JS -->
+  <script src="js/darkmode.js"></script>
+
+</body>
+
 </html>

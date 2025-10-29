@@ -1,153 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Orion Taskworks</title>
 
-    <!-- Bootstrap CSS for responsive layout -->
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Orion Taskworks</title>
 
-    <!-- Custom CSS (including dark mode styles) -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS for responsive layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- jQuery and js -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/popup.js"></script>
- 
-  
+  <!-- Custom CSS (including dark mode styles) -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- jQuery and js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/popup.js"></script>
+
+
   </style>
-  </head>
-  <body>
+</head>
 
-    <!-- ============================== -->
-    <!-- NAVIGATION BAR -->
-    <!-- ============================== -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50"
-            height="50" class="d-inline-block align-text-top me-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<body>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link"
-                  href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="tasks.html">Tasks</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="analytics.html">Analytics</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="about.html">About</a></li>
-              <li class="nav-item"><a class="nav-link active"
-                  href="contact.html">Contact</a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="suggestions.html">Suggestions</a></li>
-            </ul>
+  <!-- ============================== -->
+  <!-- NAVIGATION BAR -->
+  <!-- ============================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Orion Taskworks</a>
+        <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50"
+          class="d-inline-block align-text-top me-2">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- Dark Mode Toggle -->
-            <div class="form-check form-switch ms-3">
-              <input class="form-check-input" type="checkbox"
-                id="darkModeToggle">
-              <label class="form-check-label text-white"
-                for="darkModeToggle">Dark Mode</label>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="suggestions.html">Suggestions</a></li>
+          </ul>
+
+          <!-- Dark Mode Toggle -->
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
           </div>
         </div>
-      </nav>
-    </header>
-    <!-- ============================== -->
-    <!-- MAIN CONTENT -->
-    <!-- ============================== -->
-    <main class="container mt-5 pt-5">
+      </div>
+    </nav>
+  </header>
+  <!-- ============================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ============================== -->
+  <main class="container mt-5 pt-5">
 
-      <!-- Page Heading -->
-      <h1 class="text-center mb-4">Contact Us</h1>
-      <p class="text-center mb-5">Have a question or feedback? We would love to hear
-        from you! Fill the form below!</p>
-
-      <!-- ============================== -->
-      <!-- CONTACT FORM -->
-      <!-- ============================== -->
-      <form id="contactForm"
-        class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm">
-        <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
-          <input type="text" id="name" class="form-control" required
-            placeholder="Enter your full name">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" id="email" class="form-control" required
-            placeholder="Enter your email address">
-        </div>
-        <div class="mb-3">
-          <label for="subject" class="form-label">Subject</label>
-          <input type="text" id="subject" class="form-control" required
-            placeholder="Enter the subject">
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea id="message" class="form-control" rows="5" required
-            placeholder="Write your message here..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Send
-          Message</button>
-      </form>
-      <!-- ============================== -->
-      <!-- SOCIAL MEDIA LINKS -->
-      <!-- ============================== -->
-      <section class="text-center mt-5">
-        <h2>Follow Us</h2>
-        <div class="mt-3">
-          <a href="https://www.instagram.com/orion.taskworks/" class="fa fa-instagram" target="_blank" ></a>
-          <a href="https://x.com/orionTaskworks" class="fa fa-twitter" target="_blank" ></a>
-          <a href=" https://www.facebook.com/profile.php?id=61582887005790 " class="fa fa-facebook" target="_blank" ></a>
-          <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" target="_blank"></a>
-        </div>
-      </section>
-      <!-- ============================== -->
-      <!-- GOOGLE MAPS EMBED (American College of Greece) -->
-      <!-- ============================== -->
-      <section class="mt-5 text-center">
-        <h2>Our Location</h2>
-        <div class="ratio ratio-16x9" style="max-width: 900px; margin: 0 auto;"
-          mt-3>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12573.728935445597!2d23.811957514455784!3d38.013701701340146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a199709f059559%3A0xad1dacf4713268b2!2sAmerican%20College%20of%20Greece!5e0!3m2!1sen!2sgr!4v1761388131173!5m2!1sen!2sgr"
-            width="600" height="450" style="border:0;"
-            allowfullscreen loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            aria-label="Google Map showing American College of Greece location">
-          </iframe>
-        </div>
-      </section>
-    </main>
+    <!-- Page Heading -->
+    <h1 class="text-center mb-4">Contact Us</h1>
+    <p class="text-center mb-5">Have a question or feedback? We would love to hear
+      from you! Fill the form below or Visit our Suggestion Page for the FAQs!</p>
 
     <!-- ============================== -->
-    <!-- STICKY FOOTER -->
+    <!-- CONTACT FORM -->
     <!-- ============================== -->
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-      <p class="mb-0">&copy; 2025 Orion Taskworks | Contact Page</p>
-    </footer>
+    <form id="contactForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" required placeholder="Enter your full name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-control" required placeholder="Enter your email address">
+      </div>
+      <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" id="subject" class="form-control" required placeholder="Enter the subject">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" class="form-control" rows="5" required
+          placeholder="Write your message here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Send
+        Message</button>
+    </form>
+    <!-- ============================== -->
+    <!-- SOCIAL MEDIA LINKS -->
+    <!-- ============================== -->
+    <section class="text-center mt-5">
+      <h2>Follow Us</h2>
+      <div class="mt-3">
+        <a href="https://www.instagram.com/orion.taskworks/" class="fa fa-instagram" target="_blank"></a>
+        <a href="https://x.com/orionTaskworks" class="fa fa-twitter" target="_blank"></a>
+        <a href=" https://www.facebook.com/profile.php?id=61582887005790 " class="fa fa-facebook" target="_blank"></a>
+        <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" target="_blank"></a>
+      </div>
+    </section>
+    <!-- ============================== -->
+    <!-- GOOGLE MAPS EMBED (American College of Greece) -->
+    <!-- ============================== -->
+    <section class="mt-5 text-center">
+      <h2>Our Location</h2>
+      <div class="ratio ratio-16x9" style="max-width: 900px; margin: 0 auto;" mt-3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12573.728935445597!2d23.811957514455784!3d38.013701701340146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a199709f059559%3A0xad1dacf4713268b2!2sAmerican%20College%20of%20Greece!5e0!3m2!1sen!2sgr!4v1761388131173!5m2!1sen!2sgr"
+          width="600" height="450" style="border:0;" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Google Map showing American College of Greece location">
+        </iframe>
+      </div>
+    </section>
+  </main>
 
-    <!-- Bootstrap JS bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+  <!-- ============================== -->
+  <!-- STICKY FOOTER -->
+  <!-- ============================== -->
+  <footer
+    class="bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+    <img src="images/logo.png" alt="Logo" width="40" height="40" class="me-2">
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Contact Page</p>
+    <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
+  </footer>
 
-    <!-- Dark mode script -->
-    <script src="js/darkmode.js"></script>
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- jQuery form handling -->
-   <!-- <script>
+
+  <!-- Dark mode script -->
+  <script src="js/darkmode.js"></script>
+
+  <!-- jQuery form handling -->
+  <!-- <script>
 $(document).ready(function () {
   $('#contactForm').on('submit', function (event) {
     event.preventDefault(); // Prevent page reload
@@ -170,8 +158,9 @@ $(document).ready(function () {
     $(this).trigger('reset'); // Clear form fields
   });
 }); -->
-</script>
+  </script>
 
 
-  </body>
+</body>
+
 </html>
