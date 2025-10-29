@@ -20,9 +20,9 @@
 /* ---------- GLOBAL STYLES ---------- */
 body {
   padding-bottom: 80px;
-  /* Keeps content visible above fixed footer */
-  background-color: var(#8d0707);
-  color: var(#f0f0f0);
+    /* Keeps content visible above fixed footer */
+    background-color: var(#8d0707);
+    color: var(#f0f0f0);
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

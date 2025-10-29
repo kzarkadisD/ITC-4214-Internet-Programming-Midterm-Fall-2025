@@ -4,7 +4,7 @@ $(document).ready(function () {
     event.preventDefault(); // Prevent page reload
 
     // Get values from the form
-    const name = $('#name').val();
+    const name = $('#name').val();  
     const email = $('#email').val();
     const subject = $('#subject').val();
     const message = $('#message').val();
