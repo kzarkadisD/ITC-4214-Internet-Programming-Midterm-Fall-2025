@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS including dark mode -->
+    <link rel="stylesheet" href="css/suggestions.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- jQuery -->
@@ -55,28 +58,88 @@
       </nav>
     </header>
 
+    <!-- !-- ========================= -->
+    <!-- FAQ SECTION -->
+    <!-- ========================= -->
+  <main class="container faq-section">
+    <h1>Frequently Asked Questions</h1>
 
-<section class="container  text-center mt-5">
-  <h1 class="text-center mb-4">About Orion Taskworks</h1>
+    <div class="accordion" id="faqAccordion">
 
-  <ul class="fs-3">
-      <li><strong>Orion Taskworks</strong> is a task management web application designed to help users stay organized, focused, and efficient in both personal and professional projects.</li>
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            What is Orion Taskworks?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show"
+          aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Orion Taskworks is a task management web app designed to help users
+            organize, prioritize, and track their daily tasks efficiently with
+            built-in analytics and progress tracking.
+          </div>
+        </div>
+      </div>
 
-      <li>The application allows you to <strong>create, edit, complete, and delete tasks</strong> easily — keeping all your to-dos in one simple and accessible place.</li>
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            How can I add or remove a task?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse"
+          aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can easily add new tasks using the task form on the "Tasks" page.
+            Each task can be edited or deleted at any time from the same interface.
+          </div>
+        </div>
+      </div>
 
-      <li>With features like <strong>task filtering, sorting, and progress tracking</strong>, you can manage your workload effortlessly and visualize your productivity over time.</li>
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
+            Does Orion Taskworks save my data locally?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse"
+          aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! All your tasks are saved locally in your browser’s storage, so
+            you don’t lose them when refreshing or closing the page.
+          </div>
+        </div>
+      </div>
 
-      <li>Orion Taskworks also includes a <strong>real-time activity log</strong>, so you can review what’s been accomplished and what’s next on your list.</li>
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+            aria-expanded="false" aria-controls="collapseFour">
+            Will dark mode affect my saved tasks?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse"
+          aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            No. Dark mode only changes the visual theme — it does not affect your saved data or tasks.
+          </div>
+        </div>
+      </div>
 
-      <li>Built with modern web technologies, the app is designed for <strong>speed, simplicity, and accessibility</strong> — ensuring a smooth experience across all devices.</li>
-      
-    </ul>
-
-  <div class="text-center mt-4">
-    <a href="  " class=" btn btn-primary btn-lg mt-3">Custom Button</a>
-  </div>
-</section>
-
+    </div>
+  </main>
 
      <!-- FOOTER -->
     <footer class="bg-dark text-white text-center py-3 fixed-bottom">
@@ -88,5 +151,4 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/darkmode.js"></script>
     <script>
- 
  
