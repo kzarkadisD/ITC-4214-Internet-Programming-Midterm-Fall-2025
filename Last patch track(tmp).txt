@@ -1,1 +1,1 @@
-added letterbox, js and html, moded index.js to change api quote visuals, letterbox css on suggestion.css
+laptop setup
