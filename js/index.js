@@ -30,12 +30,12 @@ $(document).ready(function () {
       );
     }
   }
-
+//https://api.kanye.rest/
   // ------------------------------
   // Fetch motivational quote from API
   // ------------------------------
   $.ajax({
-    url: "https://api.kanye.rest/",
+    url: "https://dummyjson.com/quotes/random",
     method: "GET",
     success: function (data) {
       const quote = $("#quoteBlock p");
