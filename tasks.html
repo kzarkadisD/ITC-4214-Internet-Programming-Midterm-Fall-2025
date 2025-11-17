@@ -4,10 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage, track, and analyze your tasks with Orion Taskworks. Add, edit, filter, and sort tasks efficiently.">
+  <meta name="keywords" content="Orion Taskworks, task management, task tracking, tasks, productivity">
+  <meta name="author" content="Orion Taskworks Team">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d6efd">
+
   <title>Tasks | Orion Taskworks</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- jQuery -->
@@ -18,18 +25,22 @@
 <body>
 
   <!-- NAVBAR -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-        <img src="images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top me-2">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="me-2">
+          Orion Taskworks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="tasks.html">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="tasks.html">Tasks</a></li>
             <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -39,7 +50,7 @@
 
           <!-- Dark Mode Toggle -->
           <div class="form-check form-switch ms-3">
-            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode">
             <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
           </div>
         </div>
@@ -47,7 +58,8 @@
     </nav>
   </header>
 
-  <main class="container mt-5 pt-5">
+  <!-- MAIN CONTENT -->
+  <main role="main" class="container mt-5 pt-5" aria-label="Task Management Section">
     <h1 class="text-center mb-4">Task Management</h1>
 
     <!-- EDIT TASK MODAL -->
@@ -56,17 +68,17 @@
         <div class="modal-content">
           <div class="modal-header bg-primary text-white">
             <h5 class="modal-title" id="editTaskModalLabel">Edit Task</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="editTaskForm">
+            <form id="editTaskForm" role="form">
               <div class="mb-3">
                 <label for="editTaskName" class="form-label">Task Name</label>
-                <input type="text" id="editTaskName" class="form-control" required>
+                <input type="text" id="editTaskName" class="form-control" required aria-required="true">
               </div>
               <div class="mb-3">
                 <label for="editTaskDesc" class="form-label">Description</label>
-                <textarea id="editTaskDesc" class="form-control" rows="3" required></textarea>
+                <textarea id="editTaskDesc" class="form-control" rows="3" required aria-required="true"></textarea>
               </div>
               <div class="mb-3">
                 <label for="editTaskDate" class="form-label">Due Date</label>
@@ -91,15 +103,15 @@
     </div>
 
     <!-- ADD TASK FORM -->
-    <form id="taskForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm mb-5">
+    <form id="taskForm" class="col-md-8 mx-auto p-4 border rounded bg-light shadow-sm mb-5" role="form">
       <div class="mb-3">
         <label for="taskName" class="form-label">Task Name</label>
-        <input type="text" id="taskName" class="form-control" required placeholder="Add Task Name">
+        <input type="text" id="taskName" class="form-control" required placeholder="Add Task Name" aria-required="true">
       </div>
       <div class="mb-3">
         <label for="taskDesc" class="form-label">Description</label>
         <input type="hidden" id="taskCurrentDate">
-        <textarea id="taskDesc" class="form-control" rows="3" required placeholder="Add a Task Description"></textarea>
+        <textarea id="taskDesc" class="form-control" rows="3" required placeholder="Add a Task Description" aria-required="true"></textarea>
       </div>
       <div class="mb-3">
         <label for="taskDue" class="form-label">Due Date</label>
@@ -113,15 +125,13 @@
           <option value="Low" selected>Low</option>
         </select>
       </div>
-      <button type="submit" id="submitBtn" class="btn btn-primary w-100">Add
-        Task</button>
+      <button type="submit" id="submitBtn" class="btn btn-primary w-100">Add Task</button>
     </form>
 
     <!-- FILTER & SORT -->
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
-        <label for="filterStatus" class="form-label me-2">Filter by
-          Status:</label>
+        <label for="filterStatus" class="form-label me-2">Filter by Status:</label>
         <select id="filterStatus" class="form-select d-inline-block w-auto">
           <option value="all">All</option>
           <option value="pending">Pending</option>
@@ -138,17 +148,17 @@
     </div>
 
     <!-- TASKS TABLE -->
-    <div class="table-responsive">
+    <div class="table-responsive" role="region" aria-label="Tasks Table">
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Task</th>
-            <th>Description</th>
-            <th>Created</th>
-            <th>Due Date</th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th scope="col">Task</th>
+            <th scope="col">Description</th>
+            <th scope="col">Created</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody id="taskList">
@@ -157,41 +167,35 @@
     </div>
 
     <!-- TASK SUMMARY -->
-    <section class="mt-5 text-center">
+    <section class="mt-5 text-center" role="region" aria-label="Task Summary">
       <h2>Task Summary</h2>
-      <p>Total Tasks: <span id="totalTasks">0</span> |
-        Pending: <span id="pendingTasks">0</span> |
-        Completed: <span id="completedTasks">0</span></p>
+      <p>Total Tasks: <span id="totalTasks">0</span> | Pending: <span id="pendingTasks">0</span> | Completed: <span id="completedTasks">0</span></p>
     </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer
-    class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+  <footer class="footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2"
+    role="contentinfo">
     <a href="index.html">
-    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
-    </a>  
-    <p class="mb-0">&copy; 2025 Orion Taskworks | Tasks Page | Email: orion.taskworks@gmail.com | Social Media Links:</p>
-    <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
-    <div class=" social d-flex align-items-center gap-3">
-      <!-- Social Media Buttons -->
-      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
-        <i class="bnt instagram"> instagram</i>
+      <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+    </a>
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Tasks Page | Email: orion.taskworks@gmail.com</p>
+    <div class="social d-flex align-items-center gap-3">
+      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4" aria-label="Instagram">
+        <i class="bnt instagram">instagram</i>
       </a>
-      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4" aria-label="X / Twitter">
         <i class="bnt twitter">twitter</i>
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
-        <i class=" bnt facebook">facebook</i>
+      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4" aria-label="Facebook">
+        <i class="bnt facebook">facebook</i>
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4" aria-label="LinkedIn">
         <i class="bnt linkedin">linkedin</i>
       </a>
     </div>
   </footer>
-
-
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

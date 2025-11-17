@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Orion Taskworks is a task management app to help users stay organized, track tasks, and boost productivity.">
+  <meta name="keywords" content="task management, productivity, task tracker, organization, Orion Taskworks">
+  <meta name="author" content="Orion Taskworks Team">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d6efd">
+
   <title>About Us | Orion Taskworks</title>
 
   <!-- Bootstrap CSS for layout and styling -->
@@ -14,7 +20,6 @@
 
   <!-- jQuery for DOM manipulation and dark mode toggle -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 
 <body>
@@ -22,37 +27,30 @@
   <!-- ============================== -->
   <!-- NAVBAR (Shared Across Pages)  -->
   <!-- ============================== -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
       <div class="container-fluid">
-        <!-- Logo / Brand -->
-        <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-        <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50"
-          class="d-inline-block align-text-top me-2">
-        <!-- Hamburger toggle for mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="me-2">
+          Orion Taskworks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navbar links and dark mode toggle -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <!-- Navigation links -->
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
             <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-            <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="suggestions.html">Suggestions</a></li>
             <li class="nav-item"><a class="nav-link" href="csr.html">CSR</a></li>
           </ul>
 
-          <!-- ============================== -->
-          <!-- DARK MODE TOGGLE SWITCH       -->
-          <!-- ============================== -->
           <div class="form-check form-switch ms-3">
-            <!-- Checkbox input triggers dark mode -->
-            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode">
             <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
           </div>
         </div>
@@ -63,46 +61,31 @@
   <!-- ============================== -->
   <!-- MAIN CONTENT                   -->
   <!-- ============================== -->
-  <main class="container mt-5">
+  <main role="main" class="container mt-5 pt-3">
 
-    <!-- ============================== -->
-    <!-- ABOUT SECTION                  -->
-    <!-- ============================== -->
-    <section class="container  text-center mt-5 pt-3">
-      <h1 class="text-center mb-4">About Orion Taskworks</h1>
-
-      <ul class="fs-3">
-        <li><strong>Orion Taskworks</strong> is a task management web application designed to help users stay organized,
-          focused, and efficient in both personal and professional projects.</li>
-
-        <li>The application allows you to <strong>create, edit, complete, and delete tasks</strong> easily — keeping all
-          your to-dos in one simple and accessible place.</li>
-
-        <li>With features like <strong>task filtering, sorting, and progress tracking</strong>, you can manage your
-          workload effortlessly and visualize your productivity over time.</li>
-
-        <li>Orion Taskworks also includes a <strong>real-time activity log</strong>, so you can review what’s been
-          accomplished and what’s next on your list.</li>
-
-        <li>Built with modern web technologies, the app is designed for <strong>speed, simplicity, and
-            accessibility</strong> — ensuring a smooth experience across all devices.</li>
+    <!-- ABOUT SECTION -->
+    <section class="text-center mt-5 pt-3" aria-labelledby="aboutHeading">
+      <h1 id="aboutHeading" class="text-center mb-4">About Orion Taskworks</h1>
+      <ul class="fs-3 list-unstyled">
+        <li><strong>Orion Taskworks</strong> is a task management web application designed to help users stay organized, focused, and efficient in both personal and professional projects.</li>
+        <li>The application allows you to <strong>create, edit, complete, and delete tasks</strong> easily — keeping all your to-dos in one simple and accessible place.</li>
+        <li>With features like <strong>task filtering, sorting, and progress tracking</strong>, you can manage your workload effortlessly and visualize your productivity over time.</li>
+        <li>Orion Taskworks also includes a <strong>real-time activity log</strong>, so you can review what’s been accomplished and what’s next on your list.</li>
+        <li>Built with modern web technologies, the app is designed for <strong>speed, simplicity, and accessibility</strong> — ensuring a smooth experience across all devices.</li>
       </ul>
-
       <div class="text-center mt-4">
-        <a href=" tasks.html " class=" btn btn-primary btn-lg mt-3">Start Managing Your Tasks</a>
+        <a href="tasks.html" class="btn btn-primary btn-lg mt-3">Start Managing Your Tasks</a>
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- TEAM MEMBERS SECTION           -->
-    <!-- ============================== -->
-    <section class="mb-5">
-      <h2 class="text-center mb-4">Meet the Team</h2>
+    <!-- TEAM MEMBERS SECTION -->
+    <section class="mb-5" aria-labelledby="teamHeading">
+      <h2 id="teamHeading" class="text-center mb-4">Meet the Team</h2>
       <div class="row g-4">
-        <!-- Each team member uses a Bootstrap card -->
+        <!-- Team Member Card Example -->
         <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="images/katerina.png" class="card-img-top" class="card-img-top" alt="Team Member 1">
+          <div class="card h-100 text-center shadow-sm" role="region" aria-label="Team Member: Katerina Margarou">
+            <img src="images/katerina.png" class="card-img-top" alt="Katerina Margarou">
             <div class="card-body">
               <h5 class="card-title">Katerina Margarou</h5>
               <p class="card-text">Project Manager & Lead Developer</p>
@@ -110,8 +93,8 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="images/alex.png" class="card-img-top" alt="Team Member 2">
+          <div class="card h-100 text-center shadow-sm" role="region" aria-label="Team Member: Alex Georgiou">
+            <img src="images/alex.png" class="card-img-top" alt="Alex Georgiou">
             <div class="card-body">
               <h5 class="card-title">Alex Georgiou</h5>
               <p class="card-text">Front-End Engineer</p>
@@ -119,8 +102,8 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="images/maria.png" class="card-img-top" alt="Team Member 3">
+          <div class="card h-100 text-center shadow-sm" role="region" aria-label="Team Member: Maria Papadopoulou">
+            <img src="images/maria.png" class="card-img-top" alt="Maria Papadopoulou">
             <div class="card-body">
               <h5 class="card-title">Maria Papadopoulou</h5>
               <p class="card-text">UI/UX Designer</p>
@@ -128,8 +111,8 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="images/dimitris.png" class="card-img-top" alt="Team Member 4">
+          <div class="card h-100 text-center shadow-sm" role="region" aria-label="Team Member: Dimitris Kostidis">
+            <img src="images/dimitris.png" class="card-img-top" alt="Dimitris Kostidis">
             <div class="card-body">
               <h5 class="card-title">Dimitris Kostidis</h5>
               <p class="card-text">Backend Developer</p>
@@ -139,73 +122,61 @@
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- CAROUSEL SECTION               -->
-    <!-- ============================== -->
-    <section class="mb-5">
-      <h2 class="text-center mb-4">Our Journey</h2>
-      <div id="autoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+    <!-- CAROUSEL SECTION -->
+    <section class="mb-5" aria-labelledby="carouselHeading">
+      <h2 id="carouselHeading" class="text-center mb-4">Our Journey</h2>
+      <div id="autoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500" aria-label="Project Timeline Carousel">
         <div class="carousel-inner rounded shadow">
-          <!-- Carousel item 1 -->
           <div class="carousel-item active">
-            <img src="images/prototype.png" alt="Image 1 for Carousel on About Page " class="d-block mx-auto"
-              alt="Workspace 1">
+            <img src="images/prototype.png" class="d-block mx-auto" alt="Prototype image from 2025">
             <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
               <h5>Our First Prototype out in 2025</h5>
               <p>Humble start with great enthusiasm and the help of coffee.</p>
             </div>
           </div>
-          <!-- Carousel item 2 -->
-          <div class="carousel-item ">
-            <img src="images/collaboration.png" alt="Image 2 for Carousel on About Page " class="d-block mx-auto"
-              alt="Workspace 2">
+          <div class="carousel-item">
+            <img src="images/collaboration.png" class="d-block mx-auto" alt="Team collaboration image">
             <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
               <h5>Team Collaboration</h5>
-              <p>We believe in open communication and interative design.</p>
+              <p>We believe in open communication and interactive design.</p>
             </div>
           </div>
-          <!-- Carousel item 3 -->
-          <div class="carousel-item ">
-            <img src="images/mobile.png" alt="Image 2 for Carousel on About Page " class="d-block mx-auto"
-              alt="Workspace 3">
+          <div class="carousel-item">
+            <img src="images/mobile.png" class="d-block mx-auto" alt="Ongoing development image">
             <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
               <h5>Ongoing Development</h5>
-              <p>We believe that these is always more things to improve</p>
+              <p>We believe there are always improvements to make.</p>
             </div>
           </div>
         </div>
-        <!-- Carousel navigation buttons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#autoCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#autoCarousel" data-bs-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#autoCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#autoCarousel" data-bs-slide="next" aria-label="Next slide">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
     </section>
 
   </main>
-  
+
   <!-- FOOTER -->
-  <footer
-    class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+  <footer class="footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2" role="contentinfo">
     <a href="index.html">
-    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+      <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
     </a>
-    <p class="mb-0">&copy; 2025 Orion Taskworks | About Page | Email: orion.taskworks@gmail.com | Social Media Links:</p>
-    <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
-    <div class=" social d-flex align-items-center gap-3">
-      <!-- Social Media Buttons -->
-      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
-        <i class="bnt instagram"> instagram</i>
+    <p class="mb-0">&copy; 2025 Orion Taskworks | About Page | Email: orion.taskworks@gmail.com</p>
+    <div class="social d-flex align-items-center gap-3">
+      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4" aria-label="Instagram">
+        <i class="bnt instagram">instagram</i>
       </a>
-      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4" aria-label="X / Twitter">
         <i class="bnt twitter">twitter</i>
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
-        <i class=" bnt facebook">facebook</i>
+      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4" aria-label="Facebook">
+        <i class="bnt facebook">facebook</i>
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4" aria-label="LinkedIn">
         <i class="bnt linkedin">linkedin</i>
       </a>
     </div>

@@ -4,189 +4,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Orion Taskworks</title>
+  <meta name="description" content="FAQs, newsletter subscription, and suggestions for Orion Taskworks users.">
+  <meta name="keywords" content="Orion Taskworks, FAQs, suggestions, newsletter, task management">
+  <meta name="author" content="Orion Taskworks Team">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d6efd">
+
+  <title>Suggestions | Orion Taskworks</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
   <!-- Custom CSS including dark mode -->
   <link rel="stylesheet" href="css/suggestions.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- <script src="js/popup.js"></script> -->
 </head>
-<!-- ============================== -->
-<!-- NAVBAR -->
-<!-- ==============================  -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-      <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50"
-        class="d-inline-block align-text-top me-2">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
-          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link active" href="suggestions.html">Suggestions</a></li>
-          <li class="nav-item"><a class="nav-link" href="csr.html">CSR</a></li>
-        </ul>
-        <!-- Dark Mode Toggle -->
-        <div class="form-check form-switch ms-3">
-          <input class="form-check-input" type="checkbox" id="darkModeToggle">
-          <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
 
-<!-- !-- ========================= -->
-<!-- FAQ SECTION -->
-<!-- ========================= -->
-<main class="container faq-section">
-  <h1>Frequently Asked Questions</h1>
+<body>
 
-  <div class="accordion" id="faqAccordion">
-
-    <!-- FAQ 1 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-          aria-expanded="true" aria-controls="collapseOne">
-          What is Orion Taskworks?
+  <!-- NAVBAR -->
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="me-2">
+          Orion Taskworks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-        data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Orion Taskworks is a task management web app designed to help users
-          organize, prioritize, and track their daily tasks efficiently with
-          built-in analytics and progress tracking.
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="suggestions.html">Suggestions</a></li>
+            <li class="nav-item"><a class="nav-link" href="csr.html">CSR</a></li>
+          </ul>
+
+          <!-- Dark Mode Toggle -->
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode">
+            <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
+          </div>
         </div>
       </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main role="main" class="container faq-section mt-5 pt-5" aria-label="FAQ Section">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            What is Orion Taskworks?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Orion Taskworks is a task management web app designed to help users organize, prioritize, and track
+            their daily tasks efficiently with built-in analytics and progress tracking.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            How can I add or remove a task?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can add new tasks using the task form on the "Tasks" page. Each task can be edited or deleted at any
+            time from the same interface.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Does Orion Taskworks save my data locally?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! All your tasks are saved locally in your browser’s storage, so you don’t lose them when refreshing or
+            closing the page.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            What's next?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We are currently working on a mobile app integration and a server-based storage system for managing tasks
+            across multiple devices.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            How can I stay in touch with development and learn about new features?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            The best way is to sign up for our newsletter to never miss an update.
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- FAQ 2 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
-          How can I add or remove a task?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-        data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          You can easily add new tasks using the task form on the "Tasks" page.
-          Each task can be edited or deleted at any time from the same interface.
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ 3 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Does Orion Taskworks save my data locally?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-        data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Yes! All your tasks are saved locally in your browser’s storage, so
-          you don’t lose them when refreshing or closing the page.
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ 4 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Whats Next?
-        </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-        data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          We Are Currently Working On a Mobile App Integration For Our App.
-          A Server Based Storage System Is Also In The Works For Managing Tasks Across Multiple Devices.
-        </div>
-      </div>
-    </div>
-    <!-- FAQ 5 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFour">
-         How Can I Stay In Touch With Development And Learn About New Features?
-        </button>
-      </h2>
-      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
-        data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-        The Best Way Is To Sign Up To Our Newsletter To Never Miss An Update.
-        </div>
-      </div>
-    </div>
-    <!--  NewsLetter   -->
-    <div class="newsletter-box container mb-5">
+    <!-- NEWSLETTER -->
+    <section class="newsletter-box container mt-5 mb-5" role="region" aria-label="Newsletter Subscription">
       <h2>Subscribe to Our Newsletter</h2>
       <p class="text-center">Stay updated with the latest news and updates from Orion Taskworks!</p>
 
-      <form id="newsletterForm">
+      <form id="newsletterForm" role="form" aria-label="Newsletter Subscription Form">
         <div class="mb-3">
           <label for="userName" class="form-label">Full Name</label>
-          <input type="text" id="userName" class="form-control" placeholder="Enter your name" required>
+          <input type="text" id="userName" class="form-control" placeholder="Enter your name" required
+            aria-required="true">
         </div>
         <div class="mb-3">
           <label for="userEmail" class="form-label">Email address</label>
-          <input type="email" id="userEmail" class="form-control" placeholder="Enter your email" required>
+          <input type="email" id="userEmail" class="form-control" placeholder="Enter your email" required
+            aria-required="true">
         </div>
         <button type="submit" class="btn btn-warning w-100">Subscribe</button>
       </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2"
+    role="contentinfo">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+    </a>
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Suggestions Page | Email: orion.taskworks@gmail.com</p>
+    <div class="social d-flex align-items-center gap-3">
+      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4" aria-label="Instagram">
+        <i class="bnt instagram">instagram</i>
+      </a>
+      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4" aria-label="X / Twitter">
+        <i class="bnt twitter">twitter</i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4" aria-label="Facebook">
+        <i class="bnt facebook">facebook</i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4" aria-label="LinkedIn">
+        <i class="bnt linkedin">linkedin</i>
+      </a>
     </div>
-  </div>
-</main>
+  </footer>
 
-<!-- FOOTER -->
-<footer
-  class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
-  <a href="index.html">
-    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
-    </a>
-  <p class="mb-0">&copy; 2025 Orion Taskworks | Suggestions Page | Email: orion.taskworks@gmail.com | Social Media Links:</p>
-  <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
-  <div class=" social d-flex align-items-center gap-3">
-    <!-- Social Media Buttons -->
-    <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
-      <i class="bnt instagram"> instagram</i>
-    </a>
-    <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
-      <i class="bnt twitter">twitter</i>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
-      <i class=" bnt facebook">facebook</i>
-    </a>
-    <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
-      <i class="bnt linkedin">linkedin</i>
-    </a>
-  </div>
-</footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script src="js/letterbox.js"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/darkmode.js"></script>
-<script src="js/letterbox.js"></script>
-<script>
+</body>
+
+</html>

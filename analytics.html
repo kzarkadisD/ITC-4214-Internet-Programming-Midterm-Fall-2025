@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Analytics dashboard for Orion Taskworks. Track total tasks, completed tasks, pending tasks, and task priorities visually.">
+  <meta name="keywords" content="task analytics, task management, productivity, Orion Taskworks, dashboard, charts">
+  <meta name="author" content="Orion Taskworks Team">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d6efd">
+
   <title>Analytics | Orion Taskworks</title>
 
   <!-- Bootstrap CSS for layout -->
@@ -25,20 +31,22 @@
   <!-- ============================== -->
   <!-- NAVBAR -->
   <!-- ============================== -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Orion Taskworks</a>
-        <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50"
-          class="d-inline-block align-text-top me-2">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.png" alt="Orion Taskworks Logo" width="50" height="50" class="me-2">
+          Orion Taskworks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
-            <li class="nav-item"><a class="nav-link active" href="analytics.html">Analytics</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="analytics.html">Analytics</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="suggestions.html">Suggestions</a></li>
@@ -47,7 +55,7 @@
 
           <!-- Dark Mode Toggle -->
           <div class="form-check form-switch ms-3">
-            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode">
             <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
           </div>
         </div>
@@ -55,16 +63,15 @@
     </nav>
   </header>
 
-  <main class="container mt-5 pt-5">
+  <main role="main" class="container mt-5 pt-5">
 
-    <h1 class="text-center mb-8">Task Analytics Dashboard</h1>
-    <p class="text-center mb-8">Visualize task completion and priorities for
-      better planning.</p>
+    <h1 class="text-center mb-3">Task Analytics Dashboard</h1>
+    <p class="text-center mb-5">Visualize task completion and priorities for better planning.</p>
 
     <!-- ============================== -->
     <!-- SUMMARY CARDS -->
     <!-- ============================== -->
-    <div class="row g-4 mb-5">
+    <div class="row g-4 mb-5" role="region" aria-label="Task Summary">
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
           <div class="card-body">
@@ -94,46 +101,44 @@
     <!-- ============================== -->
     <!-- CHARTS SECTION -->
     <!-- ============================== -->
-    <div class="row g-4">
-      <div class="col-md-4"> <!-- changes chart size-->
+    <div class="row g-4" role="region" aria-label="Task Analytics Charts">
+      <div class="col-md-4">
         <div class="card shadow-sm p-3">
           <h5 class="text-center mb-3">Completed vs Pending</h5>
-          <canvas id="statusChart"></canvas>
+          <canvas id="statusChart" aria-label="Chart showing completed vs pending tasks" role="img"></canvas>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card shadow-sm p-3">
           <h5 class="text-center mb-3">Tasks by Priority</h5>
-          <canvas id="priorityChart"></canvas>
+          <canvas id="priorityChart" aria-label="Chart showing task distribution by priority" role="img"></canvas>
         </div>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer
-    class=" footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2">
+  <footer class="footer bg-dark text-white text-center py-3 fixed-bottom d-flex justify-content-center align-items-center gap-2" role="contentinfo">
     <a href="index.html">
-    <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
+      <img src="images/logo.png" alt="Orion Taskworks Logo" width="40" height="40" class="me-2">
     </a>
-    <p class="mb-0">&copy; 2025 Orion Taskworks | Analytics Page | Email: orion.taskworks@gmail.com | Social Media Links:</p>
-    <!-- mb-0 removes default paragraph bottom margin so it stays vertically aligned. -->
-    <div class=" social d-flex align-items-center gap-3">
-      <!-- Social Media Buttons -->
-      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4">
-        <i class="bnt instagram"> instagram</i>
+    <p class="mb-0">&copy; 2025 Orion Taskworks | Analytics Page | Email: orion.taskworks@gmail.com</p>
+    <div class="social d-flex align-items-center gap-3">
+      <a href="https://www.instagram.com/orion.taskworks/" target="_blank" class="text-white mx-2 fs-4" aria-label="Instagram">
+        <i class="bnt instagram">instagram</i>
       </a>
-      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://x.com/orionTaskworks" target="_blank" class="text-white mx-2 fs-4" aria-label="X / Twitter">
         <i class="bnt twitter">twitter</i>
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4">
-        <i class=" bnt facebook">facebook</i>
+      <a href="https://www.facebook.com/profile.php?id=61582887005790" target="_blank" class="text-white mx-2 fs-4" aria-label="Facebook">
+        <i class="bnt facebook">facebook</i>
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4">
+      <a href="https://www.linkedin.com/" target="_blank" class="text-white mx-2 fs-4" aria-label="LinkedIn">
         <i class="bnt linkedin">linkedin</i>
       </a>
     </div>
   </footer>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
